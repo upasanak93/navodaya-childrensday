@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Navodaya Children’s Day Celebration 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg1:#ffe9f3;--bg2:#e6f0ff;--card:#ffffffee;--ink:#2b2350;--mute:#6b6590;--pink:#ff4f9a;--yellow:#ffc83d;--blue:#3d8bff;--green:#26c485;--line:#e5def7;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#1d1538;--bg2:#10203f;--card:#262047ee;--ink:#f6f2ff;--mute:#b4acd6;--line:#3b3466;color-scheme:dark}}
+:root[data-theme="dark"]{--bg1:#1d1538;--bg2:#10203f;--card:#262047ee;--ink:#f6f2ff;--mute:#b4acd6;--line:#3b3466;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:var(--ink);background:linear-gradient(160deg,var(--bg1),var(--bg2));background-attachment:fixed;min-height:100vh;overflow-x:hidden}
+h1,h2,h3{font-family:'Baloo 2',Nunito,sans-serif;margin:0}
+.sky{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.b{position:absolute;bottom:-120px;font-size:38px;animation:rise linear infinite;opacity:.85}
+@keyframes rise{to{transform:translateY(-120vh) rotate(25deg)}}
+main{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:20px 16px 60px}
+.hero{text-align:center;padding:36px 12px 20px}
+.badge{display:inline-block;background:var(--yellow);color:#4a3200;font-weight:800;padding:6px 16px;border-radius:99px;font-family:'Baloo 2';animation:pop .8s both}
+h1{font-size:clamp(34px,8vw,58px);line-height:1.05;margin:14px 0 8px;background:linear-gradient(90deg,var(--pink),var(--yellow),var(--blue),var(--green),var(--pink));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 6s linear infinite}
+@keyframes flow{to{background-position:300% 0}}
+.sub{color:var(--mute);font-weight:700}
+.tag{font-family:'Baloo 2';font-size:20px;margin-top:14px;animation:wiggle 3s ease-in-out infinite}
+@keyframes wiggle{50%{transform:rotate(-2deg) scale(1.04)}}
+@keyframes pop{from{transform:scale(0);opacity:0}}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:20px 0}
+.pill,.ev,.sec{background:var(--card);border:2px solid var(--line);border-radius:22px;backdrop-filter:blur(8px)}
+.pill{padding:16px;text-align:center;font-weight:700;animation:up .6s both}
+.pill span{display:block;font-size:30px}
+.pill small{color:var(--mute);display:block}
+.pill:nth-child(2){animation-delay:.1s}.pill:nth-child(3){animation-delay:.2s}
+@keyframes up{from{transform:translateY(30px);opacity:0}}
+h2.t{text-align:center;font-size:30px;margin:34px 0 14px}
+.evs{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.ev{padding:18px;transition:transform .25s,box-shadow .25s;opacity:0;transform:translateY(30px)}
+.ev.in{opacity:1;transform:none;transition:all .6s}
+.ev:hover{transform:translateY(-6px) rotate(-1deg);box-shadow:0 14px 30px #ff4f9a33}
+.ev .e{font-size:42px;display:inline-block;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.ev h3{font-size:19px;margin:6px 0}
+.ev p{margin:0;color:var(--mute);font-size:15px}
+.age{display:inline-block;margin-top:8px;background:var(--blue);color:#fff;font-size:13px;font-weight:700;padding:3px 10px;border-radius:99px}
+.note{text-align:center;color:var(--mute);font-weight:700;margin-top:14px}
+.sec{padding:22px;margin:18px 0;opacity:0;transform:translateY(30px)}
+.sec.in{opacity:1;transform:none;transition:all .6s}
+.sec h2{font-size:24px}
+.sec>p{color:var(--mute);margin:4px 0 16px}
+label.f{display:block;font-weight:700;margin:14px 0 4px}
+.hint{display:block;color:var(--mute);font-weight:400;font-size:14px}
+input[type=text],input[type=tel],select,textarea{width:100%;font:inherit;color:var(--ink);background:transparent;border:2px solid var(--line);border-radius:14px;padding:12px 14px;transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 4px #ff4f9a30}
+select option{color:#222}
+textarea{min-height:110px;resize:vertical}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0}
+.chip span{display:block;padding:14px;border:2px solid var(--line);border-radius:16px;font-weight:700;cursor:pointer;transition:all .2s}
+.chip span:hover{transform:scale(1.03)}
+.chip input:checked+span{background:linear-gradient(135deg,var(--pink),var(--yellow));color:#2b1a00;border-color:transparent;transform:scale(1.04);animation:pop .3s}
+.chip input:focus-visible+span{outline:3px solid var(--blue)}
+.chk{display:flex;gap:12px;align-items:flex-start;font-weight:600;cursor:pointer}
+.chk input{width:22px;height:22px;accent-color:var(--pink);flex:none;margin-top:2px}
+.err{color:#e0245e;font-size:14px;font-weight:700;display:none;margin-top:6px}
+.bad .err{display:block}.bad input[type=text],.bad input[type=tel],.bad select,.bad textarea{border-color:#e0245e}
+button.go{display:block;width:100%;margin-top:10px;border:0;border-radius:18px;padding:16px;font:800 22px 'Baloo 2';color:#fff;cursor:pointer;background:linear-gradient(90deg,var(--pink),var(--blue));background-size:200%;box-shadow:0 10px 24px #ff4f9a55;transition:transform .2s,background-position .6s}
+button.go:hover{transform:translateY(-3px) scale(1.02);background-position:100% 0}
+button.go:active{transform:scale(.97)}
+.done{display:none;text-align:center;padding:50px 20px}
+.done .big{font-size:80px;animation:pop .6s both,bob 2s 1s infinite}
+.cf{position:fixed;top:-20px;width:10px;height:14px;z-index:9;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+footer{text-align:center;color:var(--mute);font-size:14px;margin-top:30px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.ev,.sec{opacity:1;transform:none}}
+
+.kid{border:2px dashed var(--line);border-radius:20px;padding:16px;margin-bottom:14px;animation:up .4s both;position:relative}
+.kid h3{font-size:20px;color:var(--pink)}
+.kid .row{display:grid;grid-template-columns:2fr 1fr 1.4fr;gap:10px}
+@media (max-width:560px){.kid .row{grid-template-columns:1fr}}
+.kid input[type=text],.kid input[type=number]{width:100%;font:inherit;color:var(--ink);background:transparent;border:2px solid var(--line);border-radius:14px;padding:12px 14px}
+.kid input:focus{outline:none;border-color:var(--pink);box-shadow:0 0 0 4px #ff4f9a30}
+.bad .kid input,.kid .bad input[type=text],.kid .bad input[type=number]{border-color:#e0245e}
+.chip input:disabled+span{opacity:.35;cursor:not-allowed;transform:none}
+.rm{position:absolute;top:12px;right:12px;border:0;background:var(--line);color:var(--ink);border-radius:99px;padding:6px 12px;font-weight:700;cursor:pointer}
+.addk{width:100%;border:2px dashed var(--pink);background:transparent;color:var(--pink);border-radius:16px;padding:14px;font:700 18px 'Baloo 2';cursor:pointer;transition:all .2s}
+.addk:hover{background:var(--pink);color:#fff;transform:scale(1.02)}
+</style>
+</head>
+<body>
+<div class="sky" id="sky" aria-hidden="true"></div>
+<main>
+<header class="hero">
+  <span class="badge">🎈 Rakka Balavedi · Khobar Area</span>
+  <h1>Navodaya Children’s Day Celebration 2026</h1>
+  <div class="sub">An afternoon of fun, creativity, laughter and wonderful memories!</div>
+  <div class="tag">My day. My rights. My future. Every child is a star! ⭐</div>
+</header>
+
+<section class="info" aria-label="Event details">
+  <div class="pill"><span>📅</span>27 November 2026<small>Friday</small></div>
+  <div class="pill"><span>⏰</span>4:00 PM onwards<small>Be there on time!</small></div>
+  <div class="pill"><span>📍</span>Navodaya Office<small>Dammam</small></div>
+</section>
+
+<h2 class="t">🏆 Our Exciting Events</h2>
+<section class="evs">
+  <article class="ev"><span class="e">🎤</span><h3>Think &amp; Speak</h3><p>Take the spotlight and let your confidence shine in a fun 1-minute speech!</p></article>
+  <article class="ev"><span class="e">🎭</span><h3>Fancy Dress</h3><p>Dress up as your favourite character and bring the joy of Children’s Day to life!</p></article>
+  <article class="ev"><span class="e">🧠</span><h3>Brain Buzz</h3><p>Put on your thinking caps for some exciting brain teasers!</p></article>
+  <article class="ev"><span class="e">🎨</span><h3>Colouring</h3><p>Splash your favourite colours and create a colourful masterpiece!</p><span class="age">Age 4–6 years</span></article>
+  <article class="ev"><span class="e">✏️</span><h3>Pencil Drawing</h3><p>Let your pencils do the talking and turn imagination into sketches.</p><span class="age">Age 7–15 years</span></article>
+</section>
+<p class="note">📢 Topics and themes will be announced during the event.</p>
+
+<form id="f" novalidate>
+  <section class="sec">
+    <h2>💛 Family Details</h2><p>Welcome, parents! Let’s begin with your details.</p>
+    <div class="fld"><label class="f" for="pn">👨‍👩‍👧 Parent / Guardian Name *</label>
+      <input type="text" id="pn" name="parent" placeholder="Your full name" autocomplete="name" required><div class="err">Please enter your full name.</div></div>
+    <div class="fld"><label class="f" for="ph">📱 Contact Number *</label>
+      <input type="tel" id="ph" name="phone" placeholder="Active contact number" autocomplete="tel" required><div class="err">Please enter an active contact number.</div></div>
+    <div class="fld"><label class="f" for="wing">🏡 Navodaya Family Wing / Unit *</label>
+      <select id="wing" name="wing" required><option value="">Choose…</option><option>Rakka</option><option>Other</option></select><div class="err">Please choose one.</div></div>
+    <div class="fld"><label class="f" for="conv">🧑‍💼 Name of Cluster Convenor *</label>
+      <select id="conv" name="convenor" required><option value="">Choose…</option><option>Krishnadas N</option><option>Riyas</option><option>Shihabudheen</option><option>Fazil</option><option>Lishitha</option><option>Sandeep V</option><option>Ashraf</option><option>Hisana Liyaquath</option><option>Sabri Abdul Razak</option><option>Hakeem</option><option>Jose</option><option>Femila</option></select><div class="err">Please choose your cluster convenor.</div></div>
+  </section>
+
+  <section class="sec">
+    <h2>🌸 Meet Our Little Stars!</h2>
+    <p>Add each child and pick the events <b>that child</b> will join. Colouring is for ages 4–6 and Pencil Drawing for ages 7–15.</p>
+    <div id="kidsBox"></div>
+    <button type="button" class="addk" id="addKid">➕ Add another child</button>
+  </section>
+
+  <section class="sec">
+    <h2>🌈 Almost There!</h2><p>Please confirm your registration details.</p>
+    <div class="fld"><label class="chk"><input type="checkbox" id="ok" required>
+      <span>💖 I confirm that the details above are correct and my child/children will participate in the selected competition(s). *</span></label>
+      <div class="err">Please confirm to continue.</div></div>
+    <button class="go" type="submit">🎉 Register Now!</button>
+  </section>
+</form>
+
+<section class="sec done" id="done">
+  <div class="big">🥳</div>
+  <h2>You’re registered!</h2>
+  <p>Thank you! See you on 27 November at the Navodaya Office, Dammam. Every child is a star! ⭐</p>
+</section>
+<footer>🎈 Navodaya · Rakka Balavedi – Khobar Area</footer>
+</main>
+
+<script>
+// Used only for the "open the official form" fallback. Normal registrations go through /api/register.
+var VIEW = "https://docs.google.com/forms/d/e/1FAIpQLSeL7bz9Za1Orcz2l6KXlbZNOJut_V0JUkYAftkRkGPyIzx5iQ/viewform";
+var ENTRY = {parent:"entry.2000924107",phone:"entry.1685429843",wing:"entry.451788714",convenor:"entry.44753248",kids:"entry.1541333513",comp:"entry.656548775",confirm:"entry.1744963757"};
+var CONFIRM_TEXT = "I confirm that the details provided above are correct and my child/children will participate in the selected competition(s).";
+
+var sky=document.getElementById('sky'),em=['🎈','⭐','🎈','🎉','🌈','🎈','✨'];
+for(var i=0;i<16;i++){var b=document.createElement('span');b.className='b';b.textContent=em[i%em.length];
+b.style.left=(Math.random()*95)+'%';b.style.animationDuration=(9+Math.random()*10)+'s';b.style.animationDelay=(-Math.random()*14)+'s';b.style.fontSize=(26+Math.random()*26)+'px';sky.appendChild(b)}
+
+function confetti(n){var c=['#ff4f9a','#ffc83d','#3d8bff','#26c485','#a46bff'];
+for(var i=0;i<n;i++){var d=document.createElement('i');d.className='cf';d.style.left=Math.random()*100+'vw';d.style.background=c[i%5];
+d.style.animationDuration=(2+Math.random()*2.5)+'s';d.style.animationDelay=Math.random()*.6+'s';document.body.appendChild(d);
+setTimeout(function(x){x.remove()},5500,d)}}
+confetti(60);
+
+var io=new IntersectionObserver(function(es){es.forEach(function(e,i){if(e.isIntersecting){setTimeout(function(){e.target.classList.add('in')},(i%5)*90);io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll('.ev,.sec').forEach(function(el){io.observe(el)});
+
+
+var EV=[{id:"think",v:"🎤 Think & Speak"},{id:"fancy",v:"🎭 Fancy Dress Competition"},{id:"brain",v:"🧠 Brain Buzz"},{id:"colour",v:"🎨 Colouring Competition",min:4,max:6,t:"Age 4–6"},{id:"pencil",v:"✏️  Pencil Drawing",min:7,max:15,t:"Age 7–15"}]; // Pencil label has TWO spaces, exactly as in the Google Form
+var kidsBox=document.getElementById('kidsBox');
+function renumber(){var k=kidsBox.children;for(var i=0;i<k.length;i++){k[i].querySelector('h3').textContent='⭐ Child '+(i+1);k[i].querySelector('.rm').style.display=k.length>1?'':'none'}document.getElementById('addKid').style.display=k.length>=6?'none':''}
+function addKid(){
+  var d=document.createElement('div');d.className='kid';
+  var chips=EV.map(function(e,i){return '<label class="chip"><input type="checkbox" data-i="'+i+'"><span>'+e.v+(e.t?' ('+e.t+')':'')+'</span></label>'}).join('');
+  d.innerHTML='<h3></h3><button type="button" class="rm">Remove</button>'+
+   '<div class="row"><div class="fld"><label class="f">Full name *</label><input type="text" class="kn" placeholder="Child’s full name"><div class="err">Enter name.</div></div>'+
+   '<div class="fld"><label class="f">Age *</label><input type="number" class="ka" min="1" max="18" inputmode="numeric" placeholder="Age"><div class="err">Enter age.</div></div>'+
+   '<div class="fld"><label class="f">School / Class *</label><input type="text" class="kc" placeholder="e.g. ISSD, UKG"><div class="err">Enter class.</div></div></div>'+
+   '<div class="fld"><label class="f">Events for this child *</label><div class="chips">'+chips+'</div><div class="err">Pick at least one event.</div></div>';
+  kidsBox.appendChild(d);
+  d.querySelector('.rm').onclick=function(){d.remove();renumber()};
+  d.querySelector('.ka').addEventListener('input',function(){
+    var a=parseInt(this.value,10);
+    d.querySelectorAll('.chip input').forEach(function(c){var e=EV[c.dataset.i];
+      var ok=!e.min||isNaN(a)||(a>=e.min&&a<=e.max);c.disabled=!ok;if(!ok)c.checked=false})});
+  renumber();
+}
+document.getElementById('addKid').onclick=addKid;addKid();
+function kidsData(){return Array.prototype.map.call(kidsBox.children,function(d){
+  return {n:d.querySelector('.kn').value.trim(),a:d.querySelector('.ka').value.trim(),c:d.querySelector('.kc').value.trim(),
+   ev:Array.prototype.map.call(d.querySelectorAll('.chip input:checked'),function(x){return EV[x.dataset.i].v}),el:d}})}
+function validKids(){var ok=true;kidsData().forEach(function(k){
+  var f=k.el.querySelectorAll('.fld');
+  [!k.n,!k.a,!k.c,!k.ev.length].forEach(function(b,i){f[i].classList.toggle('bad',b);if(b)ok=false})});return ok}
+
+function mark(el,bad){el.closest('.fld').classList.toggle('bad',bad);return bad}
+(function(){
+var f=document.getElementById('f'),btn=f.querySelector('button.go'),dn=document.getElementById('done'),okHTML=dn.innerHTML,btnText=btn.textContent;
+function ids(k){return EV.filter(function(x){return k.ev.indexOf(x.v)>-1}).map(function(x){return x.id})}
+function kidsText(kd){return kd.map(function(k,i){return (i+1)+'. '+k.n+' | Age '+k.a+' | '+k.c+' | Events: '+k.ev.join(', ')}).join('\n')}
+function fallbackUrl(kd){
+  var p=new URLSearchParams();p.append('usp','pp_url');
+  p.append(ENTRY.parent,pn.value.trim());p.append(ENTRY.phone,ph.value.trim());p.append(ENTRY.wing,wing.value);p.append(ENTRY.convenor,conv.value);
+  p.append(ENTRY.kids,kidsText(kd));var sn={};kd.forEach(function(k){k.ev.forEach(function(v){if(!sn[v]){sn[v]=1;p.append(ENTRY.comp,v)}})});
+  p.append(ENTRY.confirm,CONFIRM_TEXT);return VIEW+'?'+p.toString()}
+function show(html){f.style.display='none';dn.innerHTML=html;dn.style.display='block';dn.classList.add('in');dn.scrollIntoView({behavior:'smooth',block:'center'})}
+f.addEventListener('submit',function(ev){
+  ev.preventDefault();
+  mark(pn,!pn.value.trim());mark(ph,ph.value.trim().length<7);mark(wing,!wing.value);mark(conv,!conv.value);validKids();mark(ok,!ok.checked);
+  var first=document.querySelector('.bad');
+  if(first){first.scrollIntoView({behavior:'smooth',block:'center'});return}
+  var kd=kidsData();
+  var payload={parent:pn.value.trim(),phone:ph.value.trim(),wing:wing.value,convenor:conv.value,confirm:true,
+    children:kd.map(function(k){return {name:k.n,age:k.a,school:k.c,events:ids(k)}})};
+  btn.disabled=true;btn.textContent='⏳ Sending your registration…';
+  var msg='';
+  fetch('/api/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+   .then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {ok:r.ok&&j.ok===true,j:j}})})
+   .then(function(res){
+     if(res.ok){show(okHTML);confetti(120);return}
+     msg=(res.j&&res.j.error&&res.j.error.indexOf('_')<0)?res.j.error:'';throw 0})
+   .catch(function(){
+     btn.disabled=false;btn.textContent=btnText;
+     show('<div class="big">⚠️</div><h2>We couldn’t send it automatically</h2><p>'+(msg||'Your registration has <b>not</b> been recorded yet.')+' Please tap the button below. Your answers are already filled in on our official form, then tap <b>Submit</b> there.</p>'+
+       '<a class="go" id="gf" style="text-decoration:none" href="'+fallbackUrl(kd)+'">➡️ Open official form &amp; Submit</a>'+
+       '<p><a href="#" id="retry" style="color:var(--mute)">Try again</a></p>');
+     document.getElementById('retry').onclick=function(e){e.preventDefault();dn.style.display='none';f.style.display='';};
+   });
+});
+})();
+</script>
+</body>
+</html>
