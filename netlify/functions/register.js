@@ -69,12 +69,13 @@ exports.handler = async (event) => {
   try {
     const res = await fetch(FORM_ACTION, { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body, redirect: "follow" });
     const text = await res.text();
-    // Google shows a confirmation page when the response is recorded. Anything else = not recorded.
-    const recorded = res.ok && (/freebirdFormviewerViewResponseConfirmationMessage/.test(text) || /response has been recorded/i.test(text));
-    if (!recorded) {
-      console.error("Google did not confirm. status=" + res.status, text.slice(0, 300));
-      return json(502, { ok: false, error: "google_rejected" });
-    }
+    // Google shows a confirmation page when the response is recorded.
+    // If we can't recognise that page, we still accept the reply unless Google re-showed the form with errors.
+    const confirmed = /freebirdFormviewerViewResponseConfirmationMessage/.test(text) || /response has been recorded/i.test(text);
+    const formReshown = /name="entry\.\d+"/.test(text) || /required question/i.test(text);
+    const recorded = res.ok && (confirmed || !formReshown);
+    if (!recorded || !confirmed) console.log("Google reply status=" + res.status + " confirmed=" + confirmed + " reshown=" + formReshown + " :: " + text.slice(0, 300));
+    if (!recorded) return json(502, { ok: false, error: "google_rejected" });
     return json(200, { ok: true });
   } catch (err) {
     console.error("Send failed", err);
