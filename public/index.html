@@ -140,6 +140,7 @@ footer{text-align:center;color:var(--mute);font-size:14px;margin-top:30px}
       <span>💖 I confirm that the details above are correct and my child/children will participate in the selected competition(s). *</span></label>
       <div class="err">Please confirm to continue.</div></div>
     <button class="go" type="submit">🎉 Register Now!</button>
+    <p style="text-align:center;color:var(--mute);font-size:14px;margin:10px 0 0">Next you’ll see your answers on our official form. Tap <b>Submit</b> there to finish. ✅</p>
   </section>
 </form>
 
@@ -151,9 +152,12 @@ footer{text-align:center;color:var(--mute);font-size:14px;margin-top:30px}
 <footer>🎈 Navodaya · Rakka Balavedi – Khobar Area</footer>
 </main>
 
+<iframe name="sink" id="sink" style="display:none" title="submission target"></iframe>
 <script>
-// Used only for the "open the official form" fallback. Normal registrations go through /api/register.
+// MODE "prefill": opens your Google Form with every answer filled in; parent taps Submit once (always recorded).
+var MODE = "prefill";
 var VIEW = "https://docs.google.com/forms/d/e/1FAIpQLSeL7bz9Za1Orcz2l6KXlbZNOJut_V0JUkYAftkRkGPyIzx5iQ/viewform";
+var FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSeL7bz9Za1Orcz2l6KXlbZNOJut_V0JUkYAftkRkGPyIzx5iQ/formResponse";
 var ENTRY = {parent:"entry.2000924107",phone:"entry.1685429843",wing:"entry.451788714",convenor:"entry.44753248",kids:"entry.1541333513",comp:"entry.656548775",confirm:"entry.1744963757"};
 var CONFIRM_TEXT = "I confirm that the details provided above are correct and my child/children will participate in the selected competition(s).";
 
@@ -171,7 +175,7 @@ var io=new IntersectionObserver(function(es){es.forEach(function(e,i){if(e.isInt
 document.querySelectorAll('.ev,.sec').forEach(function(el){io.observe(el)});
 
 
-var EV=[{id:"think",v:"🎤 Think & Speak"},{id:"fancy",v:"🎭 Fancy Dress Competition"},{id:"brain",v:"🧠 Brain Buzz"},{id:"colour",v:"🎨 Colouring Competition",min:4,max:6,t:"Age 4–6"},{id:"pencil",v:"✏️  Pencil Drawing",min:7,max:15,t:"Age 7–15"}]; // Pencil label has TWO spaces, exactly as in the Google Form
+var EV=[{v:"🎤 Think & Speak"},{v:"🎭 Fancy Dress Competition"},{v:"🧠 Brain Buzz"},{v:"🎨 Colouring Competition",min:4,max:6,t:"Age 4–6"},{v:"✏️  Pencil Drawing",min:7,max:15,t:"Age 7–15"}];
 var kidsBox=document.getElementById('kidsBox');
 function renumber(){var k=kidsBox.children;for(var i=0;i<k.length;i++){k[i].querySelector('h3').textContent='⭐ Child '+(i+1);k[i].querySelector('.rm').style.display=k.length>1?'':'none'}document.getElementById('addKid').style.display=k.length>=6?'none':''}
 function addKid(){
@@ -199,40 +203,24 @@ function validKids(){var ok=true;kidsData().forEach(function(k){
   [!k.n,!k.a,!k.c,!k.ev.length].forEach(function(b,i){f[i].classList.toggle('bad',b);if(b)ok=false})});return ok}
 
 function mark(el,bad){el.closest('.fld').classList.toggle('bad',bad);return bad}
-(function(){
-var f=document.getElementById('f'),btn=f.querySelector('button.go'),dn=document.getElementById('done'),okHTML=dn.innerHTML,btnText=btn.textContent;
-function ids(k){return EV.filter(function(x){return k.ev.indexOf(x.v)>-1}).map(function(x){return x.id})}
-function kidsText(kd){return kd.map(function(k,i){return (i+1)+'. '+k.n+' | Age '+k.a+' | '+k.c+' | Events: '+k.ev.join(', ')}).join('\n')}
-function fallbackUrl(kd){
-  var p=new URLSearchParams();p.append('usp','pp_url');
-  p.append(ENTRY.parent,pn.value.trim());p.append(ENTRY.phone,ph.value.trim());p.append(ENTRY.wing,wing.value);p.append(ENTRY.convenor,conv.value);
-  p.append(ENTRY.kids,kidsText(kd));var sn={};kd.forEach(function(k){k.ev.forEach(function(v){if(!sn[v]){sn[v]=1;p.append(ENTRY.comp,v)}})});
-  p.append(ENTRY.confirm,CONFIRM_TEXT);return VIEW+'?'+p.toString()}
-function show(html){f.style.display='none';dn.innerHTML=html;dn.style.display='block';dn.classList.add('in');dn.scrollIntoView({behavior:'smooth',block:'center'})}
-f.addEventListener('submit',function(ev){
+document.getElementById('f').addEventListener('submit',function(ev){
   ev.preventDefault();
-  mark(pn,!pn.value.trim());mark(ph,ph.value.trim().length<7);mark(wing,!wing.value);mark(conv,!conv.value);validKids();mark(ok,!ok.checked);
+  var bad=[mark(pn,!pn.value.trim()),mark(ph,ph.value.trim().length<7),mark(wing,!wing.value),mark(conv,!conv.value),!validKids(),mark(ok,!ok.checked)];
   var first=document.querySelector('.bad');
   if(first){first.scrollIntoView({behavior:'smooth',block:'center'});return}
-  var kd=kidsData();
-  var payload={parent:pn.value.trim(),phone:ph.value.trim(),wing:wing.value,convenor:conv.value,confirm:true,
-    children:kd.map(function(k){return {name:k.n,age:k.a,school:k.c,events:ids(k)}})};
-  btn.disabled=true;btn.textContent='⏳ Sending your registration…';
-  var msg='';
-  fetch('/api/register',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
-   .then(function(r){return r.json().catch(function(){return {}}).then(function(j){return {ok:r.ok&&j.ok===true,j:j}})})
-   .then(function(res){
-     if(res.ok){show(okHTML);confetti(120);return}
-     msg=(res.j&&res.j.error&&res.j.error.indexOf('_')<0)?res.j.error:'';throw 0})
-   .catch(function(){
-     btn.disabled=false;btn.textContent=btnText;
-     show('<div class="big">⚠️</div><h2>We couldn’t send it automatically</h2><p>'+(msg||'Your registration has <b>not</b> been recorded yet.')+' Please tap the button below. Your answers are already filled in on our official form, then tap <b>Submit</b> there.</p>'+
-       '<a class="go" id="gf" style="text-decoration:none" href="'+fallbackUrl(kd)+'">➡️ Open official form &amp; Submit</a>'+
-       '<p><a href="#" id="retry" style="color:var(--mute)">Try again</a></p>');
-     document.getElementById('retry').onclick=function(e){e.preventDefault();dn.style.display='none';f.style.display='';};
-   });
+  if(MODE==="prefill"){
+    var p=new URLSearchParams(),kd2=kidsData();p.append("usp","pp_url");
+    p.append(ENTRY.parent,pn.value.trim());p.append(ENTRY.phone,ph.value.trim());p.append(ENTRY.wing,wing.value);p.append(ENTRY.convenor,conv.value);
+    p.append(ENTRY.kids,kd2.map(function(k,i){return (i+1)+'. '+k.n+' | Age '+k.a+' | '+k.c+' | Events: '+k.ev.join(', ')}).join('\n'));
+    var sn={};kd2.forEach(function(k){k.ev.forEach(function(v){if(!sn[v]){sn[v]=1;p.append(ENTRY.comp,v)}})});
+    p.append(ENTRY.confirm,CONFIRM_TEXT);
+    var url=VIEW+"?"+p.toString(),dn=document.getElementById('done');
+    dn.innerHTML='<div class="big">📝</div><h2>One last step!</h2><p>Your details are ready. On the next page, tap the <b>Submit</b> button to complete your registration.</p><button type="button" class="go" id="goForm">➡️ Continue &amp; Submit</button><p style="color:var(--mute);font-size:14px">Opening automatically in <b id="cd">6</b>…</p>';
+    this.style.display='none';dn.style.display='block';dn.classList.add('in');dn.scrollIntoView({behavior:'smooth',block:'center'});confetti(80);
+    var left=6,t=setInterval(function(){left--;var c=document.getElementById('cd');if(c)c.textContent=left;if(left<=0){clearInterval(t);location.href=url}},1000);
+    document.getElementById('goForm').onclick=function(){clearInterval(t);location.href=url};return;
+  }
 });
-})();
 </script>
 </body>
 </html>
